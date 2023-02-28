@@ -8,7 +8,7 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **attachbelow** adds new clients below the active client.
 + **bar_height** allows the bar height to be declared explicitly.
 + **center_transient_windows** aligns transient windows to the centre of the screen.
-+ **cool_autostart** executes commands defined in an array inside config.h.
+<!-- + **cool_autostart** executes commands defined in an array inside config.h. -->
 + **cyclelayouts** cycles through all available layouts.
 <!-- + **fakefullscreenclient** enables clients to enter "fullscreen" mode using -->
 <!--   only their current space. -->

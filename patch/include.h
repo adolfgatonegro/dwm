@@ -12,7 +12,6 @@
 
 /* Other patches */
 #include "attachx.h"
-#include "cool_autostart.h"
 #include "cyclelayouts.h"
 #include "pertag.h"
 #include "restartsig.h"

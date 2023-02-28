@@ -106,13 +106,6 @@ static char *colors[][ColCount] = {
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
 };
 
-
-
-static const char *const autostart[] = {
-	"~/.config/autostart.sh", NULL,
-	NULL /* terminate */
-};
-
 const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {TERM, "-n", "spmusic", "-g", "120x34", "-e", "cmus", NULL };
 const char *spcmd3[] = {TERM, "-n", "spsysmon", "-g", "120x34", "-e", "btop", NULL };
