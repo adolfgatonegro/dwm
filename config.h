@@ -266,10 +266,12 @@ static const Key keys[] = {
 	/* { MODKEY,                       XK_b,          togglebar,              {0} }, */
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },/*focus down stack*/
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },/*focus up stack*/
-	{ MODKEY|ShiftMask,             XK_j,          rotatestack,            {.i = +1 } },/*rotate down*/
-	{ MODKEY|ShiftMask,             XK_k,          rotatestack,            {.i = -1 } },/*rotate up*/
+	/* { MODKEY|ControlMask,           XK_j,          rotatestack,            {.i = +1 } },*rotate down*/
+	/* { MODKEY|ControlMask,           XK_k,          rotatestack,            {.i = -1 } },*rotate up*/
 	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },/*inc master num*/
 	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },/*dec master num*/
+	{ MODKEY|ShiftMask,             XK_j,          movestack,              {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,          movestack,              {.i = -1 } },
 	{ MODKEY,                       XK_h,          setmfact,               {.f = -0.05} },/*dec master size*/
 	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },/*inc master size*/
 	{ MODKEY|Mod1Mask,              XK_Return,     zoom,                   {0} },/*set focused as master*/

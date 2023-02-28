@@ -13,9 +13,9 @@
 /* Other patches */
 #include "attachx.h"
 #include "cyclelayouts.h"
+#include "movestack.h"
 #include "pertag.h"
 #include "restartsig.h"
-#include "rotatestack.h"
 #include "scratchpad.h"
 #include "seamless_restart.h"
 #include "shift.h"
