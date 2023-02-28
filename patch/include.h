@@ -14,7 +14,6 @@
 #include "attachx.h"
 #include "cool_autostart.h"
 #include "cyclelayouts.h"
-#include "fakefullscreenclient.h"
 #include "pertag.h"
 #include "restartsig.h"
 #include "rotatestack.h"

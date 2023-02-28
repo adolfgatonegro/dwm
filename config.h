@@ -29,8 +29,8 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static int fakefsindicatortype           = INDICATOR_PLUS;
-static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
+/* static int fakefsindicatortype           = INDICATOR_PLUS; */
+/* static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE; */
 static const char *fonts[]               = { "monospace:size=9" };
 static const char dmenufont[]            = "monospace:size=9";
 
@@ -109,7 +109,7 @@ static char *colors[][ColCount] = {
 
 
 static const char *const autostart[] = {
-	/* "st", NULL, */
+	"~/.config/autostart.sh", NULL,
 	NULL /* terminate */
 };
 
@@ -308,7 +308,7 @@ static const Key keys[] = {
 	/* { MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} }, */
 	/* { MODKEY,                       XK_space,      setlayout,              {0} }, */
 	/* { MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} }, */
-	{ MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },/*toggle fake fullscreen*/
+	/* { MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },*toggle fake fullscreen*/
 	{ MODKEY|ShiftMask,             XK_s,          togglesticky,           {0} },/*toggle sticky*/
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~SPTAGMASK } },/*view all tags*/
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~SPTAGMASK } },/*send to all tags?*/
