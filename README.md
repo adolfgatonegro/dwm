@@ -19,14 +19,15 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **shiftview_clients** cycles only through tags with visible clients.
 + **sticky** tags windows to be visible on all tags.
 + **swallow** lets terminals swallow windows opened by a child process.
++ **togglelayout** enables the previous layout if the current layout's key is pressed.
 + **vanitygaps** adds configurable gaps between windows.
 + **xrdb** reads colours from Xresources at runtime.
 
 ## Layouts
 
-+ **bstack**
-+ **centeredmaster**
-+ **deck**
-+ **gridmode**
 + **tile**
 + **monocle**
++ **deck**
++ **gridmode**
++ **centeredmaster**
++ **bstack**

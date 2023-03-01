@@ -23,8 +23,6 @@ static const int bar_height              = 25;   /* 0 means derive from font, >=
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
 
-
-
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
@@ -75,8 +73,6 @@ static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#222222";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
-
-
 
 static const unsigned int baralpha = 0xf9;
 static const unsigned int borderalpha = OPAQUE;
@@ -152,7 +148,6 @@ static char *tagicons[][NUMTAGS] =
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
 
-
 /* There are two options when it comes to per-client rules:
  *  - a typical struct table or
  *  - using the RULE macro
@@ -182,9 +177,14 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 6)
 	RULE(.class = "firefox", .tags = 1 << 0)
 	RULE(.class = "discord", .tags = 1 << 3)
+	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
+	RULE(.class = "Steam", .tags = 1 << 5, .isfloating = 1)
+	RULE(.class = "Gimp", .tags = 1 << 6)
+	RULE(.class = "Inkscape", .tags = 1 << 6)
+	RULE(.class = "Darktable", .tags = 1 << 6)
+	RULE(.class = "Vmplayer", .tags = 1 << 8)
 	RULE(.class = "St" TERMINAL)
 	RULE(.title = "Event Tester" NOSWALLOW)
 	/* scratchpads */
@@ -193,8 +193,6 @@ static const Rule rules[] = {
 	RULE(.instance = "spsysmon", .tags = SPTAG(2), .isfloating = 1)
 	RULE(.instance = "spcalc", .tags = SPTAG(3), .isfloating = 1)
 };
-
-
 
 /* Bar rules allow you to configure what is shown where on the bar, as well as
  * introducing your own bar modules.
@@ -209,30 +207,28 @@ static const Rule rules[] = {
  *    name - does nothing, intended for visual clue and for logging / debugging
  */
 static const BarRule barrules[] = {
-	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,             draw_status,            click_status,            NULL,                    "status" },
-	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
+	/* monitor   bar    alignment         widthfunc       drawfunc       clickfunc       hoverfunc    name */
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,     draw_tags,     click_tags,     hover_tags,  "tags" },
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol, draw_ltsymbol, click_ltsymbol, NULL,        "layout" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,   draw_status,   click_status,   NULL,        "status" },
+	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar, draw_fancybar, click_fancybar, NULL,        "fancybar" },
 };
 
 /* layout(s) */
-static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-
-
+static const float mfact        = 0.5; /* factor of master area size [0.05..0.95] */
+static const int nmaster        = 1;   /* number of clients in master area */
+static const int resizehints    = 0;   /* 1 means respect size hints in tiled resizals */
+static const int lockfullscreen = 1;   /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "TTT",      bstack },
-	{ "|M|",      centeredmaster },
 	{ "[D]",      deck },
 	{ "HHH",      grid },
+	{ "|M|",      centeredmaster },
+	{ "TTT",      bstack },
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -259,15 +255,11 @@ static const char *dmenucmd[] = {
 };
 static const char *termcmd[]  = { "st", NULL };
 
-
-
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
 	/* { MODKEY,                       XK_b,          togglebar,              {0} }, */
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },/*focus down stack*/
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },/*focus up stack*/
-	/* { MODKEY|ControlMask,           XK_j,          rotatestack,            {.i = +1 } },*rotate down*/
-	/* { MODKEY|ControlMask,           XK_k,          rotatestack,            {.i = -1 } },*rotate up*/
 	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },/*inc master num*/
 	{ MODKEY,                       XK_d,          incnmaster,             {.i = -1 } },/*dec master num*/
 	{ MODKEY|ShiftMask,             XK_j,          movestack,              {.i = +1 } },
@@ -291,15 +283,13 @@ static const Key keys[] = {
 	/* { MODKEY|Mod1Mask|ShiftMask,    XK_9,          incrovgaps,             {.i = -1 } }, */
 	{ MODKEY|Mod1Mask,              XK_0,          togglegaps,             {0} },/*toggle gaps*/
 	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },/*reset gaps to default*/
-	{ MODKEY,                       XK_Tab,        view,                   {0} },/*switch to last tag*/
-	{ MODKEY|Mod1Mask,              XK_Tab,        shiftviewclients,       { .i = -1 } },/*shift to prev tag with client*/
-	{ MODKEY|Mod1Mask,              XK_backslash,  shiftviewclients,       { .i = +1 } },/*shift to next tag with client*/
 	{ MODKEY|ShiftMask,             XK_c,          killclient,             {0} },/*kill focused client*/
 	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },/*quit dwm*/
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {1} },/*quit with restartsig*/
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },/*reload xresources*/
-	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	/* { MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} }, */
+	/* set layouts */
+	{ Mod1Mask|ControlMask,         XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ Mod1Mask|ControlMask,         XK_f,          setlayout,              {.v = &layouts[1]} },
 	/* { MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} }, */
 	/* { MODKEY,                       XK_space,      setlayout,              {0} }, */
 	/* { MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} }, */
@@ -307,12 +297,17 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,          togglesticky,           {0} },/*toggle sticky*/
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~SPTAGMASK } },/*view all tags*/
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~SPTAGMASK } },/*send to all tags?*/
-	{ MODKEY,                       XK_comma,      focusmon,               {.i = -1 } },/*focus prev monitor*/
-	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },/*focus next monitor*/
-	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },/*tag prev monitor*/
-	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },/*tag next monitor*/
-	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },/*cycle layouts back*/
-	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },/*cycle layouts fwd*/
+	/* layout and monitor switching */
+	{ MODKEY,                       XK_comma,      cyclelayout,            {.i = -1 } },
+	{ MODKEY,                       XK_period,     cyclelayout,            {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_comma,      focusmon,               {.i = -2 } },
+	{ MODKEY|ControlMask,           XK_period,     focusmon,               {.i = +1 } },
+	/* tag switching */
+	{ MODKEY|ControlMask,           XK_Tab,        view,                   {0} },/*switch to last tag*/
+	{ MODKEY|ShiftMask,             XK_Tab,        shiftviewclients,       { .i = -1 } },/*shift to next tag with client*/
+	{ MODKEY,                       XK_Tab,        shiftviewclients,       { .i = +1 } },/*shift to prev tag with client*/
 	/* commands */
 	{ MODKEY,                       XK_space,     spawn,       {.v = (const char*[]){ "dmrun", "-p", "run:", NULL } } },
 	{ MODKEY,                       XK_Return,    spawn,       {.v = termcmd } },
@@ -358,7 +353,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                                  7)
 	TAGKEYS(                        XK_9,                                  8)
 };
-
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
