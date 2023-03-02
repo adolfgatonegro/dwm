@@ -4,8 +4,10 @@
 #include "bar.h"
 
 #include "bar_alpha.h"
+#include "bar_dwmblocks.h"
 #include "bar_ltsymbol.h"
 #include "bar_status.h"
+#include "bar_statuscmd.h"
 #include "bar_tags.h"
 #include "bar_wintitle.h"
 #include "bar_fancybar.h"

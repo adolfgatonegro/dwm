@@ -5,7 +5,6 @@
 
 /* constants */
 #define TERM "st"
-#define TERMCLASS "st"
 #define BROWSER "firefox"
 
 /* appearance */
@@ -27,8 +26,6 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-/* static int fakefsindicatortype           = INDICATOR_PLUS; */
-/* static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE; */
 static const char *fonts[]               = { "monospace:size=9" };
 static const char dmenufont[]            = "monospace:size=9";
 
@@ -207,11 +204,11 @@ static const Rule rules[] = {
  *    name - does nothing, intended for visual clue and for logging / debugging
  */
 static const BarRule barrules[] = {
-	/* monitor   bar    alignment         widthfunc       drawfunc       clickfunc       hoverfunc    name */
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,     draw_tags,     click_tags,     hover_tags,  "tags" },
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol, draw_ltsymbol, click_ltsymbol, NULL,        "layout" },
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,   draw_status,   click_status,   NULL,        "status" },
-	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar, draw_fancybar, click_fancybar, NULL,        "fancybar" },
+	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,             draw_status,            click_statuscmd,         NULL,                    "status" },
+	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
 };
 
 /* layout(s) */
@@ -255,9 +252,12 @@ static const char *dmenucmd[] = {
 };
 static const char *termcmd[]  = { "st", NULL };
 
+/* This defines the name of the executable that handles the bar (used for signalling purposes) */
+#define STATUSBAR "dwmblocks"
+
 static const Key keys[] = {
 	/* modifier                     key            function                argument */
-	/* { MODKEY,                       XK_b,          togglebar,              {0} }, */
+	{ Mod1Mask|ControlMask|ShiftMask,                       XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_j,          focusstack,             {.i = +1 } },/*focus down stack*/
 	{ MODKEY,                       XK_k,          focusstack,             {.i = -1 } },/*focus up stack*/
 	/* { MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },*inc master num*/
@@ -336,9 +336,9 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioStop,         spawn, {.v = (const char*[]){ "playerctl", "stop", NULL } } },
 	{ 0, XF86XK_AudioNext,         spawn, {.v = (const char*[]){ "playerctl", "next", NULL } } },
 	{ 0, XF86XK_AudioPrev,         spawn, {.v = (const char*[]){ "playerctl", "previous", NULL } } },
-	{ 0, XF86XK_AudioRaiseVolume,  spawn, {.v = (const char*[]){ "volctl", "-i", "2", NULL } } },
-	{ 0, XF86XK_AudioLowerVolume,  spawn, {.v = (const char*[]){ "volctl", "-d", "2", NULL } } },
-	{ 0, XF86XK_AudioMute,         spawn, {.v = (const char*[]){ "volctl", "-t", NULL } } },
+	{ 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("volctl -i 2; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("volctl -d 2; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioMute,         spawn, SHCMD("volctl -t; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessUp,   spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
 	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
 	{ 0, XF86XK_KbdBrightnessUp,   spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
@@ -361,7 +361,11 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,                   Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
+	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
+	{ ClkStatusText,        0,                   Button3,        sigstatusbar,   {.i = 3 } },
+	{ ClkStatusText,        0,                   Button4,        sigstatusbar,   {.i = 4 } },
+	{ ClkStatusText,        0,                   Button5,        sigstatusbar,   {.i = 5 } },
 	{ ClkClientWin,         MODKEY,              Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,              Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,              Button3,        resizemouse,    {0} },
