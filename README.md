@@ -2,6 +2,8 @@
 
 Custom build of [dwm](https://dwm.suckless.org/).
 
+[!A dwm session with dwmblocks.](preview.jpg)
+
 ## Patches
 
 + **alpha** adds transparency to the status bar.
