@@ -13,7 +13,7 @@ width_systray(Bar *bar, BarArg *a)
 		if (!w)
 			XMoveWindow(dpy, systray->win, -systray->h, bar->by);
 	}
-	return w ? w + lrpad - systrayspacing : 0;
+	return w ? w + lrpad / 4 - systrayspacing : 0; /* divide lrpad to reduce horizontal padding */
 }
 
 int

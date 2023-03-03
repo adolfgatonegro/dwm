@@ -40,5 +40,7 @@ Custom build of [dwm](https://dwm.suckless.org/).
 
 + `dwm.c` - Autostart function to launch or refresh `dwmblocks` whenever `dwm`
   (re)starts.
-+ `patch/bar_systray.c` modified to allow explicitly declaring an icon size in
-  `config.h` instead of calculating them from the font size.
++ `systrayiconsize` added to `bar_systray` to allow explicitly declaring an
+  icon size in `config.h` instead of calculating them from the font size.
++ Modified `width_systray` function in `bar_systray` to reduce horizontal
+  padding.
