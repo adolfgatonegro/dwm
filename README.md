@@ -2,7 +2,7 @@
 
 Custom build of [dwm](https://dwm.suckless.org/).
 
-[!A dwm session with dwmblocks.](preview.jpg)
+![A dwm session with dwmblocks.](preview.jpg)
 
 ## Patches
 
