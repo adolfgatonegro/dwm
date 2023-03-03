@@ -26,7 +26,7 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "monospace:size=9" };
+static const char *fonts[]               = { "monospace:size=8" };
 /* static const char dmenufont[]            = "monospace:size=9"; */
 
 static char c000000[]                    = "#000000"; // placeholder value
@@ -332,10 +332,10 @@ static const Key keys[] = {
 	{ 0,                            XK_F10,       togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_c,         togglescratch,  {.ui = 3 } },
 	/* xf86 media keys */
-	{ 0, XF86XK_AudioPlay,         spawn, {.v = (const char*[]){ "playerctl", "play-pause", NULL } } },
-	{ 0, XF86XK_AudioStop,         spawn, {.v = (const char*[]){ "playerctl", "stop", NULL } } },
-	{ 0, XF86XK_AudioNext,         spawn, {.v = (const char*[]){ "playerctl", "next", NULL } } },
-	{ 0, XF86XK_AudioPrev,         spawn, {.v = (const char*[]){ "playerctl", "previous", NULL } } },
+	{ 0, XF86XK_AudioPlay,          spawn, SHCMD("playerctl play-pause; kill -47 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioStop,          spawn, SHCMD("playerctl stop; kill -47 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioNext,          spawn, SHCMD("playerctl next; kill -47 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioPrev,          spawn, SHCMD("playerctl previous; kill -47 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("volctl -i 2; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("volctl -d 2; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioMute,         spawn, SHCMD("volctl -t; kill -44 $(pidof dwmblocks)") },
