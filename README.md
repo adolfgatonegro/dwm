@@ -22,6 +22,7 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **status2d** adds colour support to the status bar, includes **xrdb** support.
 + **sticky** tags windows to be visible on all tags.
 + **swallow** lets terminals swallow windows opened by a child process.
++ **systray** adds a systray to the status bar.
 + **togglelayout** enables the previous layout if the current layout's key is pressed.
 + **vanitygaps** adds configurable gaps between windows.
 + **xrdb** reads colours from Xresources at runtime.
@@ -34,3 +35,10 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **gridmode**
 + **centeredmaster**
 + **bstack**
+
+## Extra features
+
++ `dwm.c` - Autostart function to launch or refresh `dwmblocks` whenever `dwm`
+  (re)starts.
++ `patch/bar_systray.c` modified to allow explicitly declaring an icon size in
+  `config.h` instead of calculating them from the font size.
