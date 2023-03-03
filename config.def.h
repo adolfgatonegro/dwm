@@ -26,8 +26,8 @@ static const int statusmon               = 'A';
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "monospace:size=9" };
-static const char dmenufont[]            = "monospace:size=9";
+static const char *fonts[]               = { "monospace:size=8" };
+/* static const char dmenufont[]            = "monospace:size=9"; */
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -207,7 +207,7 @@ static const BarRule barrules[] = {
 	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
-	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status,             draw_status,            click_statuscmd,         NULL,                    "status" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
 	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
 };
 
@@ -332,16 +332,16 @@ static const Key keys[] = {
 	{ 0,                            XK_F10,       togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_c,         togglescratch,  {.ui = 3 } },
 	/* xf86 media keys */
-	{ 0, XF86XK_AudioPlay,         spawn, {.v = (const char*[]){ "playerctl", "play-pause", NULL } } },
-	{ 0, XF86XK_AudioStop,         spawn, {.v = (const char*[]){ "playerctl", "stop", NULL } } },
-	{ 0, XF86XK_AudioNext,         spawn, {.v = (const char*[]){ "playerctl", "next", NULL } } },
-	{ 0, XF86XK_AudioPrev,         spawn, {.v = (const char*[]){ "playerctl", "previous", NULL } } },
-	{ 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("volctl -i 2; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("volctl -d 2; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioMute,         spawn, SHCMD("volctl -t; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_MonBrightnessUp,   spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
-	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
-	{ 0, XF86XK_KbdBrightnessUp,   spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
+	{ 0, XF86XK_AudioPlay,          spawn, {.v = (const char*[]){ "playerctl", "play-pause", NULL } } },
+	{ 0, XF86XK_AudioStop,          spawn, {.v = (const char*[]){ "playerctl", "stop", NULL } } },
+	{ 0, XF86XK_AudioNext,          spawn, {.v = (const char*[]){ "playerctl", "next", NULL } } },
+	{ 0, XF86XK_AudioPrev,          spawn, {.v = (const char*[]){ "playerctl", "previous", NULL } } },
+	{ 0, XF86XK_AudioRaiseVolume,   spawn, {.v = (const char*[]){ "volctl", "-i", "2", NULL } } },
+	{ 0, XF86XK_AudioLowerVolume,   spawn, {.v = (const char*[]){ "volctl", "-d", "2", NULL } } },
+	{ 0, XF86XK_AudioMute,          spawn, {.v = (const char*[]){ "volctl", "-t", NULL } } },
+	{ 0, XF86XK_MonBrightnessUp,    spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
+	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
+	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
 	{ 0, XF86XK_KbdBrightnessDown, spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
 	TAGKEYS(                        XK_1,                                  0)/* mod > switch view*/
 	TAGKEYS(                        XK_2,                                  1)/* mod ctrl > make visible*/

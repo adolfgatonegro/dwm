@@ -17,7 +17,7 @@ click_statuscmd_text(Arg *arg, int rel_x, char *text)
 		if ((unsigned char)text[i] < ' ') {
 			ch = text[i];
 			text[i] = '\0';
-			x += TEXTWM(text) - lrpad;
+			x += status2dtextlength(text);
 			text[i] = ch;
 			text += i+1;
 			i = -1;

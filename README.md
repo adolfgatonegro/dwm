@@ -19,6 +19,7 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **seamlessrestart** retains layouts, tags, nmaster, etc., across restarts.
 + **statuscmd** makes status elements clickable.
 + **shiftview_clients** cycles only through tags with visible clients.
++ **status2d** adds colour support to the status bar, includes **xrdb** support.
 + **sticky** tags windows to be visible on all tags.
 + **swallow** lets terminals swallow windows opened by a child process.
 + **togglelayout** enables the previous layout if the current layout's key is pressed.
