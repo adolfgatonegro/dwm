@@ -21,6 +21,8 @@ static const int topbar                  = 1;   /* 0 means bottom bar */
 static const int bar_height              = 25;   /* 0 means derive from font, >= 1 explicit height */
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
+static const unsigned int systrayspacing = 4;   /* systray spacing */
+static const int showsystray             = 1;   /* 0 means no systray */
 
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
@@ -208,6 +210,7 @@ static const BarRule barrules[] = {
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
+	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
 	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
 };
 

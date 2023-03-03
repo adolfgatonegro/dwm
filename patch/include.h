@@ -12,6 +12,7 @@
 #include "bar_tags.h"
 #include "bar_wintitle.h"
 #include "bar_fancybar.h"
+#include "bar_systray.h"
 
 /* Other patches */
 #include "attachx.h"
