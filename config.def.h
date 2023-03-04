@@ -211,7 +211,7 @@ static const BarRule barrules[] = {
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
 	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_status2d,           draw_status2d,          click_statuscmd,         NULL,                    "status2d" },
-	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
+	{ statusmon, 0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
 	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
 };
 
@@ -322,7 +322,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F8,        spawn,       {.v = (const char*[]){ "dmmount", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F8,        spawn,       {.v = (const char*[]){ "dmunmount", NULL } } },
 	{ MODKEY,                       XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
-	{ MODKEY|ControlMask,           XK_o,         spawn,       {.v = (const char*[]){ "display_toggle", NULL } } },
+	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "display_toggle", NULL } } },
 	{ MODKEY,                       XK_p,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ BROWSER, "--private-window", NULL } } },
