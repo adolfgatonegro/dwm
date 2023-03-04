@@ -323,6 +323,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F8,        spawn,       {.v = (const char*[]){ "dmunmount", NULL } } },
 	{ MODKEY,                       XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "display_toggle", NULL } } },
+	{ Mod1Mask|ControlMask,         XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
 	{ MODKEY,                       XK_p,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ BROWSER, "--private-window", NULL } } },
