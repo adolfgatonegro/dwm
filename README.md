@@ -46,3 +46,5 @@ Custom build of [dwm](https://dwm.suckless.org/).
   icon size in `config.h` instead of calculating them from the font size.
 + Modified `width_systray` function in `bar_systray.` to reduce horizontal
   padding.
++ Modified `view` function to return to previously selected tag is the current
+  tag key is pressed again.
