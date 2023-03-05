@@ -1896,7 +1896,7 @@ run(void)
 
 void
 runAutostart(void) {
-	system("killall -q dwmblocks; dwmblocks &");
+	system("sleep 1 && killall -q dwmblocks; dwmblocks &");
 }
 
 void
