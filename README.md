@@ -48,5 +48,5 @@ Custom build of [dwm](https://dwm.suckless.org/).
   padding.
 + Modified `view` function to return to previously selected tag is the current
   tag key is pressed again.
-+ Added `KeyPressMask` to `wa.event_mask` in `dwm.c` to allow retain media key
++ Added `KeyPressMask` to `wa.event_mask` in `dwm.c` to retain media key
   functionality even when `slock` is active.
