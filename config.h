@@ -328,6 +328,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ BROWSER, "--private-window", NULL } } },
 	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "lfpv", NULL } } },
+	{ MODKEY|ShiftMask,             XK_f,         spawn,       SHCMD("xdg-open \"$(dmfile)\"") },
 	{ MODKEY,                       XK_e,         spawn,       {.v = (const char*[]){ TERM, "-e", "vim", NULL } } },
 	{ MODKEY,                       XK_d,         spawn,       {.v = (const char*[]){ "discord", NULL } } },
 	{ MODKEY,                       XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
