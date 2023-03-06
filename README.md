@@ -50,3 +50,5 @@ Custom build of [dwm](https://dwm.suckless.org/).
   tag key is pressed again.
 + Added `KeyPressMask` to `wa.event_mask` in `dwm.c` to retain media key
   functionality even when `slock` is active.
++ Reverted upstream commit [`712d633`](https://git.suckless.org/dwm/commit/712d6639ff8e863560328131bbb92b248dc9cde7.html)
+  as it was causing some programs (e.g. `mpv`) to fail when called from a script that was run via key bindings.
