@@ -342,6 +342,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioStop,          spawn, SHCMD("playerctl stop; kill -47 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioNext,          spawn, SHCMD("playerctl next; kill -47 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioPrev,          spawn, SHCMD("playerctl previous; kill -47 $(pidof dwmblocks)") },
+	{ Mod1Mask, XK_F9,              spawn, {.v = (const char*[]){ "playerctl", "position", "10+", NULL } } },
+	{ Mod1Mask, XK_F7,              spawn, {.v = (const char*[]){ "playerctl", "position", "10-", NULL } } },
 	{ 0, XF86XK_AudioRaiseVolume,   spawn, SHCMD("volctl -i 2; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioLowerVolume,   spawn, SHCMD("volctl -d 2; kill -44 $(pidof dwmblocks)") },
 	{ 0, XF86XK_AudioMute,          spawn, SHCMD("volctl -t; kill -44 $(pidof dwmblocks)") },
