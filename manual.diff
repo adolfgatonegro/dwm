@@ -1,0 +1,125 @@
+From 5546eb0ae661a90966eb077d52a50bd45cd7787e Mon Sep 17 00:00:00 2001
+From: adolfgatonegro <github@gatoneg.ro>
+Date: Mon, 6 Mar 2023 13:16:30 -0600
+Subject: apply manual changes to dwm.c and bar_systray.c
+
+---
+ dwm.c               | 30 +++++++++++++++++++-----------
+ patch/bar_systray.c |  4 ++--
+ 2 files changed, 21 insertions(+), 13 deletions(-)
+
+diff --git a/dwm.c b/dwm.c
+index 051127f..9d4c7e7 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -333,6 +333,7 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
+ static void resizemouse(const Arg *arg);
+ static void restack(Monitor *m);
+ static void run(void);
++static void runAutostart(void);
+ static void scan(void);
+ static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
+ static void sendmon(Client *c, Monitor *m);
+@@ -344,6 +345,7 @@ static void setmfact(const Arg *arg);
+ static void setup(void);
+ static void seturgent(Client *c, int urg);
+ static void showhide(Client *c);
++static void sigchld(int unused);
+ static void spawn(const Arg *arg);
+ static void tag(const Arg *arg);
+ static void tagmon(const Arg *arg);
+@@ -1893,6 +1895,11 @@ run(void)
+ 	}
+ }
+ 
++void
++runAutostart(void) {
++	system("killall -q dwmblocks; dwmblocks &");
++}
++
+ void
+ scan(void)
+ {
+@@ -2063,16 +2070,8 @@ setup(void)
+ 	int i;
+ 	XSetWindowAttributes wa;
+ 	Atom utf8string;
+-	struct sigaction sa;
+-
+-	/* do not transform children into zombies when they terminate */
+-	sigemptyset(&sa.sa_mask);
+-	sa.sa_flags = SA_NOCLDSTOP | SA_NOCLDWAIT | SA_RESTART;
+-	sa.sa_handler = SIG_IGN;
+-	sigaction(SIGCHLD, &sa, NULL);
+-
+-	/* clean up any zombies (inherited from .xinitrc etc) immediately */
+-	while (waitpid(-1, NULL, WNOHANG) > 0);
++	/* clean up any zombies immediately */
++	sigchld(0);
+ 
+ 	signal(SIGHUP, sighup);
+ 	signal(SIGTERM, sigterm);
+@@ -2146,7 +2145,7 @@ setup(void)
+ 	wa.cursor = cursor[CurNormal]->cursor;
+ 	wa.event_mask = SubstructureRedirectMask|SubstructureNotifyMask
+ 		|ButtonPressMask|PointerMotionMask|EnterWindowMask
+-		|LeaveWindowMask|StructureNotifyMask|PropertyChangeMask;
++		|LeaveWindowMask|StructureNotifyMask|PropertyChangeMask|KeyPressMask;
+ 	XChangeWindowAttributes(dpy, root, CWEventMask|CWCursor, &wa);
+ 	XSelectInput(dpy, root, wa.event_mask);
+ 
+@@ -2193,6 +2192,13 @@ showhide(Client *c)
+ 	}
+ }
+ 
++void
++sigchld(int unused)
++{
++	if (signal(SIGCHLD, sigchld) == SIG_ERR)
++		die("can't install SIGCHLD handler:");
++	while (0 < waitpid(-1, NULL, WNOHANG));
++}
+ 
+ void
+ spawn(const Arg *arg)
+@@ -2665,6 +2671,7 @@ view(const Arg *arg)
+ {
+ 	if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
+ 	{
++		view(&((Arg) { .ui = 0 })); /* switch to previous tag if called again */
+ 		return;
+ 	}
+ 	selmon->seltags ^= 1; /* toggle sel tagset */
+@@ -2784,6 +2791,7 @@ main(int argc, char *argv[])
+ 		die("pledge");
+ #endif /* __OpenBSD__ */
+ 	scan();
++	runAutostart();
+ 	run();
+ 	cleanup();
+ 	XCloseDisplay(dpy);
+diff --git a/patch/bar_systray.c b/patch/bar_systray.c
+index cbb959f..5bf0ea7 100644
+--- a/patch/bar_systray.c
++++ b/patch/bar_systray.c
+@@ -13,7 +13,7 @@ width_systray(Bar *bar, BarArg *a)
+ 		if (!w)
+ 			XMoveWindow(dpy, systray->win, -systray->h, bar->by);
+ 	}
+-	return w ? w + lrpad - systrayspacing : 0;
++	return w ? w + lrpad / 8 - systrayspacing : 0; /* divide lrpad to reduce horizontal padding */
+ }
+ 
+ int
+@@ -35,7 +35,7 @@ draw_systray(Bar *bar, BarArg *a)
+ 		wa.override_redirect = True;
+ 		wa.event_mask = ButtonPressMask|ExposureMask;
+ 		wa.border_pixel = 0;
+-		systray->h = MIN(a->h, drw->fonts->h);
++		systray->h = systrayiconsize;
+ 		wa.background_pixel = 0;
+ 		wa.colormap = cmap;
+ 		systray->win = XCreateWindow(dpy, root, bar->bx + a->x + lrpad / 2, -systray->h, MAX(a->w + 40, 1), systray->h, 0, depth,
+-- 
+2.39.2
+
