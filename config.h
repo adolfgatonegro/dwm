@@ -273,6 +273,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F2,        spawn,       {.v = (const char*[]){ "dmconf", NULL } } },
 	{ MODKEY,                       XK_F8,        spawn,       {.v = (const char*[]){ "dmmount", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F8,        spawn,       {.v = (const char*[]){ "dmunmount", NULL } } },
+	{ Mod1Mask,                     XK_b,         spawn,       {.v = (const char*[]){ "bmks", NULL } } },
+	{ Mod1Mask|ShiftMask,           XK_b,         spawn,       {.v = (const char*[]){ "bmks", "add", NULL } } },
 	{ MODKEY,                       XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
 	{ MODKEY,                       XK_o,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", NULL } } },
@@ -287,7 +289,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "launcher", NULL } } },
 	/* window management */
-	{ Mod1Mask|ShiftMask,           XK_b,          togglebar,              {0} },
+	{ MODKEY|ControlMask,           XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_q,          killclient,             {0} },
 	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {1} },
@@ -319,10 +321,10 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,         XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ Mod1Mask|ControlMask,         XK_f,          setlayout,              {.v = &layouts[1]} },
 	/* gaps */
-	{ MODKEY|Mod1Mask,              XK_0,          togglegaps,             {0} },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
-	{ MODKEY|Mod1Mask,              XK_u,          incrgaps,               {.i = +1 } },
-	{ MODKEY|Mod1Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_0,          togglegaps,             {0} },
+	{ MODKEY|ControlMask|ShiftMask, XK_0,          defaultgaps,            {0} },
+	{ MODKEY|ControlMask,           XK_g,          incrgaps,               {.i = +1 } },
+	{ MODKEY|ControlMask|ShiftMask, XK_g,          incrgaps,               {.i = -1 } },
 	/* scratchpads */
 	{ 0,                            XK_F12,       togglescratch,  {.ui = 0 } },
 	{ MODKEY,                       XK_m,         togglescratch,  {.ui = 1 } },
