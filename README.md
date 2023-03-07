@@ -12,7 +12,7 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **center_transient_windows** aligns transient windows to the centre of the screen.
 + **cyclelayouts** cycles through all available layouts.
 + **dwmblocks** status bar (using `dwmblocks-async`).
-+ **fancybar** shows the titles of all visible windows on the status bar.
++ **fancybar**[optional] shows the titles of all visible windows on the status bar.
 + **movestack** enables moving clients up and down the stack.
 + **noborder** removes the border when only one client window is visible.
 + **pertag** allows each tag to have its own layout, nmaster, etc.
