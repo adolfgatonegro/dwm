@@ -1,12 +1,5 @@
-From 5546eb0ae661a90966eb077d52a50bd45cd7787e Mon Sep 17 00:00:00 2001
-From: adolfgatonegro <github@gatoneg.ro>
-Date: Mon, 6 Mar 2023 13:16:30 -0600
-Subject: apply manual changes to dwm.c and bar_systray.c
-
----
  dwm.c               | 30 +++++++++++++++++++-----------
- patch/bar_systray.c |  4 ++--
- 2 files changed, 21 insertions(+), 13 deletions(-)
+ 1 file changed, 19 insertions(+), 11 deletions(-)
 
 diff --git a/dwm.c b/dwm.c
 index 051127f..9d4c7e7 100644
@@ -98,28 +91,5 @@ index 051127f..9d4c7e7 100644
  	run();
  	cleanup();
  	XCloseDisplay(dpy);
-diff --git a/patch/bar_systray.c b/patch/bar_systray.c
-index cbb959f..5bf0ea7 100644
---- a/patch/bar_systray.c
-+++ b/patch/bar_systray.c
-@@ -13,7 +13,7 @@ width_systray(Bar *bar, BarArg *a)
- 		if (!w)
- 			XMoveWindow(dpy, systray->win, -systray->h, bar->by);
- 	}
--	return w ? w + lrpad - systrayspacing : 0;
-+	return w ? w + lrpad / 8 - systrayspacing : 0; /* divide lrpad to reduce horizontal padding */
- }
- 
- int
-@@ -35,7 +35,7 @@ draw_systray(Bar *bar, BarArg *a)
- 		wa.override_redirect = True;
- 		wa.event_mask = ButtonPressMask|ExposureMask;
- 		wa.border_pixel = 0;
--		systray->h = MIN(a->h, drw->fonts->h);
-+		systray->h = systrayiconsize;
- 		wa.background_pixel = 0;
- 		wa.colormap = cmap;
- 		systray->win = XCreateWindow(dpy, root, bar->bx + a->x + lrpad / 2, -systray->h, MAX(a->w + 40, 1), systray->h, 0, depth,
--- 
 2.39.2
 
