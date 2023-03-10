@@ -308,7 +308,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,          setmfact,               {.f = +0.05} },
 	{ Mod1Mask|ShiftMask,           XK_Return,     zoom,                   {0} },
 	{ Mod1Mask|ShiftMask,           XK_s,          togglesticky,           {0} },
-	{ Mod1Mask|ShiftMask,           XK_space,      togglefloating,         {0} },
+	{ Mod1Mask|ShiftMask,           XK_f,          float_and_center,       {0} },
 	{ Mod1Mask,                     XK_i,          incnmaster,             {.i = +1 } },
 	{ Mod1Mask|ShiftMask,           XK_i,          incnmaster,             {.i = -1 } },
 	{ MODKEY,                       XK_comma,      cyclelayout,            {.i = -1 } },

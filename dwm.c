@@ -305,6 +305,7 @@ static void drawbars(void);
 static void drawbarwin(Bar *bar);
 static void enternotify(XEvent *e);
 static void expose(XEvent *e);
+static void float_and_center(const Arg *arg);
 static void focus(Client *c);
 static void focusin(XEvent *e);
 static void focusmon(const Arg *arg);
@@ -1187,6 +1188,25 @@ expose(XEvent *e)
 
 	if (ev->count == 0 && (m = wintomon(ev->window))) {
 		drawbar(m);
+	}
+}
+
+/* move windows to the centre of the screen when made floating */
+void
+float_and_center(const Arg *arg) {
+	Client *c;
+	int nx, ny;
+	int nw = 900, nh = 700;
+	c = selmon->sel;
+
+	togglefloating(arg);
+	if (c->isfloating) {
+		/* first resize */
+		resize(c, 0, 0, nw - 2*c->bw, nh - 2*c->bw, 0);
+		nx = selmon->wx + (selmon->ww / 2) - (c->w / 2);
+		ny = selmon->wy + (selmon->wh / 2) - (c->h / 2);
+		/* next move */
+		resize(c, nx, ny, c->w, c->h, 0);
 	}
 }
 
