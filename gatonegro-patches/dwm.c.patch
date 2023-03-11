@@ -19,7 +19,7 @@ diff --git a/dwm.c b/dwm.c
 index 051127f..285d77b 100644
 --- a/dwm.c
 +++ b/dwm.c
-@@ -305,6 +305,7 @@ static void drawbars(void);
+@@ -309,6 +309,7 @@
  static void drawbarwin(Bar *bar);
  static void enternotify(XEvent *e);
  static void expose(XEvent *e);
@@ -27,7 +27,7 @@ index 051127f..285d77b 100644
  static void focus(Client *c);
  static void focusin(XEvent *e);
  static void focusmon(const Arg *arg);
-@@ -333,6 +334,7 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
+@@ -337,6 +338,7 @@
  static void resizemouse(const Arg *arg);
  static void restack(Monitor *m);
  static void run(void);
@@ -35,7 +35,7 @@ index 051127f..285d77b 100644
  static void scan(void);
  static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
  static void sendmon(Client *c, Monitor *m);
-@@ -344,6 +346,7 @@ static void setmfact(const Arg *arg);
+@@ -348,6 +350,7 @@
  static void setup(void);
  static void seturgent(Client *c, int urg);
  static void showhide(Client *c);
@@ -43,7 +43,7 @@ index 051127f..285d77b 100644
  static void spawn(const Arg *arg);
  static void tag(const Arg *arg);
  static void tagmon(const Arg *arg);
-@@ -1188,6 +1191,25 @@ expose(XEvent *e)
+@@ -1192,6 +1195,25 @@
  	}
  }
  
@@ -69,19 +69,19 @@ index 051127f..285d77b 100644
  void
  focus(Client *c)
  {
-@@ -1893,6 +1915,11 @@ run(void)
- 	}
+@@ -1914,6 +1936,11 @@
  }
  
-+void
+ void
 +runAutostart(void) {
 +	system("killall -q dwmblocks; dwmblocks &");
 +}
 +
- void
++void
  scan(void)
  {
-@@ -2063,16 +2090,8 @@ setup(void)
+ 	scanner = 1;
+@@ -2083,16 +2110,8 @@
  	int i;
  	XSetWindowAttributes wa;
  	Atom utf8string;
@@ -100,7 +100,7 @@ index 051127f..285d77b 100644
  
  	signal(SIGHUP, sighup);
  	signal(SIGTERM, sigterm);
-@@ -2146,7 +2165,7 @@ setup(void)
+@@ -2170,7 +2189,7 @@
  	wa.cursor = cursor[CurNormal]->cursor;
  	wa.event_mask = SubstructureRedirectMask|SubstructureNotifyMask
  		|ButtonPressMask|PointerMotionMask|EnterWindowMask
@@ -109,7 +109,7 @@ index 051127f..285d77b 100644
  	XChangeWindowAttributes(dpy, root, CWEventMask|CWCursor, &wa);
  	XSelectInput(dpy, root, wa.event_mask);
  
-@@ -2193,6 +2212,13 @@ showhide(Client *c)
+@@ -2217,6 +2236,13 @@
  	}
  }
  
@@ -123,7 +123,7 @@ index 051127f..285d77b 100644
  
  void
  spawn(const Arg *arg)
-@@ -2665,6 +2691,7 @@ view(const Arg *arg)
+@@ -2689,6 +2715,7 @@
  {
  	if ((arg->ui & TAGMASK) == selmon->tagset[selmon->seltags])
  	{
@@ -131,7 +131,7 @@ index 051127f..285d77b 100644
  		return;
  	}
  	selmon->seltags ^= 1; /* toggle sel tagset */
-@@ -2784,6 +2811,7 @@ main(int argc, char *argv[])
+@@ -2808,6 +2835,7 @@
  		die("pledge");
  #endif /* __OpenBSD__ */
  	scan();
@@ -139,6 +139,3 @@ index 051127f..285d77b 100644
  	run();
  	cleanup();
  	XCloseDisplay(dpy);
--- 
-2.39.2
-
