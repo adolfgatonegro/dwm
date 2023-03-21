@@ -7,6 +7,8 @@ Custom build of [dwm](https://dwm.suckless.org/).
 ## Patches
 
 + **alpha** adds transparency to the status bar.
++ **actualfullscreen** actually fullscreens a window, instead of just hiding
+  the statusbar and applying the monocle layout.
 + **attachbelow** adds new clients below the active client.
 + **bar_height** allows the bar height to be declared explicitly.
 + **center_transient_windows** aligns transient windows to the centre of the screen.
@@ -16,6 +18,8 @@ Custom build of [dwm](https://dwm.suckless.org/).
 + **movestack** enables moving clients up and down the stack.
 + **noborder** removes the border when only one client window is visible.
 + **pertag** allows each tag to have its own layout, nmaster, etc.
++ **resizecorners** allows resizing a window from whichever corner is closest
+  to the cursor instead of only the bottom right corner.
 + **restartsig** allows `dwm` to be restarted instead of needing to log out.
 + **scratchpads** adds floating scratchpad windows.
 + **seamlessrestart** retains layouts, tags, nmaster, etc., across restarts.
