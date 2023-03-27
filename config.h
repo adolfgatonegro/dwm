@@ -344,7 +344,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_MonBrightnessUp,    spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
 	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
 	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
-	{ 0, XF86XK_KbdBrightnessDown, spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
+	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
+	{ 0, XF86XK_PowerOff,              spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 
 	/* { MODKEY|Mod1Mask,              XK_i,          incrigaps,              {.i = +1 } }, */
 	/* { MODKEY|Mod1Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } }, */
