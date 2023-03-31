@@ -269,7 +269,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return,    spawn,       {.v = termcmd } },
 	/* { Mod1Mask,                     XK_Tab,       spawn,       {.v = (const char*[]){ "dmwin", NULL } } }, */
 	{ MODKEY,                       XK_grave,     spawn,       {.v = (const char*[]){ "dmunicode", NULL } } },
-	{ MODKEY,                       XK_BackSpace, spawn,       {.v = (const char*[]){ "dmsys", NULL } } },
+	{ MODKEY,                       XK_x,         spawn,       {.v = (const char*[]){ "dmsys", NULL } } },
 	{ MODKEY,                       XK_F2,        spawn,       {.v = (const char*[]){ "dmconf", NULL } } },
 	{ MODKEY,                       XK_F8,        spawn,       {.v = (const char*[]){ "dmmount", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F8,        spawn,       {.v = (const char*[]){ "dmunmount", NULL } } },
@@ -345,7 +345,7 @@ static const Key keys[] = {
 	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
 	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
 	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
-	{ 0, XF86XK_PowerOff,              spawn, {.v = (const char*[]){ "dmsys", NULL } } },
+	{ 0, XF86XK_PowerOff,           spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 
 	/* { MODKEY|Mod1Mask,              XK_i,          incrigaps,              {.i = +1 } }, */
 	/* { MODKEY|Mod1Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } }, */
