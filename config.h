@@ -276,7 +276,7 @@ static const Key keys[] = {
 	{ Mod1Mask,                     XK_b,         spawn,       {.v = (const char*[]){ "bmks", NULL } } },
 	{ Mod1Mask|ShiftMask,           XK_b,         spawn,       {.v = (const char*[]){ "bmks", "add", NULL } } },
 	{ Mod1Mask,                     XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
-	{ Mod1Mask|ShiftMask,           XK_o,         spawn,       SHCMD("xdg-open $(fd -t f | dmenu -l 20 -p \"Open file:\")") },
+	{ Mod1Mask|ShiftMask,           XK_o,         spawn,       SHCMD("xdg-open \"$(fd -t f | dmenu -i -l 20 -p \"Open file:\")\"") },
 	{ Mod1Mask,                     XK_o,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } },
