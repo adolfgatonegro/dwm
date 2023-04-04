@@ -37,10 +37,10 @@ Custom build of [dwm](https://dwm.suckless.org/).
 
 + **tile**
 + **monocle**
-+ **deck**
 + **gridmode**
-+ **centeredmaster**
++ **deck**
 + **bstack**
++ **centeredmaster** (disabled by default)
 
 ## Extra features
 

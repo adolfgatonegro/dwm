@@ -228,10 +228,10 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
 	{ "[M]",      monocle },
-	{ "[D]",      deck },
 	{ "HHH",      grid },
-	{ "|M|",      centeredmaster },
+	{ "[D]",      deck },
 	{ "TTT",      bstack },
+	/* { "|M|",      centeredmaster }, */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
