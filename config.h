@@ -280,7 +280,7 @@ static const Key keys[] = {
 	{ Mod1Mask,                     XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
 	{ Mod1Mask|ShiftMask,           XK_o,         spawn,       SHCMD("xdg-open \"$(fd -t f | dmenu -i -l 20 -p \"Open file:\")\"") },
 	{ Mod1Mask,                     XK_o,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
-	{ Mod1Mask,                     XK_v,         spawn,       {.v = (const char*[]){ "vim-anywhere", NULL } } },
+	{ Mod1Mask|ControlMask,         XK_v,         spawn,       {.v = (const char*[]){ "vim-anywhere", NULL } } },
 	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } },
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
@@ -349,6 +349,7 @@ static const Key keys[] = {
 	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
 	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
 	{ 0, XF86XK_PowerOff,           spawn, {.v = (const char*[]){ "dmsys", NULL } } },
+	{ 0, XF86XK_Sleep,              spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 
 	/* { MODKEY|Mod1Mask,              XK_i,          incrigaps,              {.i = +1 } }, */
 	/* { MODKEY|Mod1Mask|ShiftMask,    XK_i,          incrigaps,              {.i = -1 } }, */
@@ -382,6 +383,8 @@ static const Button buttons[] = {
 	/* click                event mask           button          function        argument */
 	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkLtSymbol,          0,                   Button4,        focusstack,     {.i = -1 } },
+	{ ClkLtSymbol,          0,                   Button5,        focusstack,     {.i = +1 } },
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,                   Button1,        sigstatusbar,   {.i = 1 } },
 	{ ClkStatusText,        0,                   Button2,        sigstatusbar,   {.i = 2 } },
