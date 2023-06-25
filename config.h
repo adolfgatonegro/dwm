@@ -180,7 +180,7 @@ static const Rule rules[] = {
 	RULE(.class = "firefox", .tags = 1 << 0)
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
-	RULE(.class = "Steam", .tags = 1 << 5, .isfloating = 1)
+	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 6)
 	RULE(.class = "Gimp", .title = "Change Foreground Colour", .isfloating = 1)
 	RULE(.class = "Gimp", .title = "Quit GIMP", .isfloating = 1)
