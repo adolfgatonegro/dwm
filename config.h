@@ -69,8 +69,8 @@ static char hidselfgcolor[]              = "#227799";
 static char hidnormbgcolor[]             = "#222222";
 static char hidselbgcolor[]              = "#222222";
 
-static char urgfgcolor[]                 = "#bbbbbb";
-static char urgbgcolor[]                 = "#222222";
+static char urgfgcolor[]                 = "#c1c1d1";
+static char urgbgcolor[]                 = "#363649";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 
@@ -181,6 +181,7 @@ static const Rule rules[] = {
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
 	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
+	RULE(.class = "Steam", .tags = 1 << 5, .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 6)
 	RULE(.class = "Gimp", .title = "Change Foreground Colour", .isfloating = 1)
 	RULE(.class = "Gimp", .title = "Quit GIMP", .isfloating = 1)
