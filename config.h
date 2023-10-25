@@ -270,7 +270,7 @@ static const Key keys[] = {
 	/* commands */
 	{ MODKEY,                       XK_space,     spawn,       {.v = (const char*[]){ "dmrun", "-p", "run:", NULL } } },
 	{ MODKEY,                       XK_Return,    spawn,       {.v = termcmd } },
-	/* { Mod1Mask,                     XK_Tab,       spawn,       {.v = (const char*[]){ "dmwin", NULL } } }, */
+	{ MODKEY|ShiftMask,             XK_Return,    spawn,       {.v = (const char*[]){ "cool-retro-term", NULL } } },
 	{ MODKEY,                       XK_grave,     spawn,       {.v = (const char*[]){ "dmunicode", NULL } } },
 	{ MODKEY,                       XK_x,         spawn,       {.v = (const char*[]){ "dmsys", NULL } } },
 	{ MODKEY,                       XK_F2,        spawn,       {.v = (const char*[]){ "dmconf", NULL } } },
