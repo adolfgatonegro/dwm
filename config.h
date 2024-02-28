@@ -102,9 +102,9 @@ static char *colors[][ColCount] = {
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
 };
 
-const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {TERM, "-n", "spmusic", "-g", "120x34", "-e", "cmus", NULL };
-const char *spcmd3[] = {TERM, "-n", "spsysmon", "-g", "120x34", "-e", "btop", NULL };
+const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x40", NULL };
+const char *spcmd2[] = {TERM, "-n", "spmusic", "-g", "120x40", "-e", "cmus", NULL };
+const char *spcmd3[] = {TERM, "-n", "spsysmon", "-g", "120x40", "-e", "btop", NULL };
 const char *spcmd4[] = {TERM, "-n", "spcalc", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -319,8 +319,8 @@ static const Key keys[] = {
 	{ Mod1Mask|ShiftMask,           XK_i,          incnmaster,             {.i = -1 } },
 	{ MODKEY,                       XK_comma,      cyclelayout,            {.i = -1 } },
 	{ MODKEY,                       XK_period,     cyclelayout,            {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_comma,      focusmon,               {.i = -2 } },
 	{ MODKEY|ControlMask,           XK_period,     focusmon,               {.i = +1 } },
 	/* layouts */
