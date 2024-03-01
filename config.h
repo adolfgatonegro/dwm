@@ -348,8 +348,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioMute,          spawn, SHCMD("volctl -t; pkill -RTMIN+10 dwmblocks") },
 	{ 0, XF86XK_MonBrightnessUp,    spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
 	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
-	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-inc", "10", NULL } } },
-	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "xbacklight", "-ctrl", "smc::kbd_backlight", "-dec", "10", NULL } } },
+	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "brightnessctl", "--device=smc::kbd_backlight", "set", "+10%", NULL } } },
+	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "brightnessctl", "--device=smc::kbd_backlight", "set", "10%-", NULL } } },
 	{ 0, XF86XK_PowerOff,           spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 	{ 0, XF86XK_Sleep,              spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 
