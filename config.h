@@ -299,9 +299,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {1} },
 	/* tag switching */
-	{ MODKEY|ControlMask,           XK_Tab,        view,                   {0} },/*switch to last tag*/
-	{ MODKEY|ShiftMask,             XK_Tab,        shiftviewclients,       { .i = -1 } },/*shift to next tag with client*/
+	{ Mod1Mask,                     XK_Tab,        view,                   {0} },/*switch to last tag*/
 	{ MODKEY,                       XK_Tab,        shiftviewclients,       { .i = +1 } },/*shift to prev tag with client*/
+	{ MODKEY|ShiftMask,             XK_Tab,        shiftviewclients,       { .i = -1 } },/*shift to next tag with client*/
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~SPTAGMASK } },/*view all tags*/
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~SPTAGMASK } },/*send to all tags?*/
 	/* window, layout and monitor */
