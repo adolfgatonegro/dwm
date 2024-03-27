@@ -296,8 +296,8 @@ static const Key keys[] = {
 	/* window management */
 	{ MODKEY|ControlMask,           XK_b,          togglebar,              {0} },
 	{ MODKEY,                       XK_q,          killclient,             {0} },
-	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {1} },
+	{ MODKEY|ShiftMask,             XK_q,          quit,                   {1} },/*restart dwm*/
+	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {0} },/*kill dwm*/
 	/* tag switching */
 	{ Mod1Mask,                     XK_Tab,        view,                   {0} },/*switch to last tag*/
 	{ MODKEY,                       XK_Tab,        shiftviewclients,       { .i = +1 } },/*shift to prev tag with client*/
