@@ -5,7 +5,7 @@
 
 /* constants */
 #define TERM "st"
-#define BROWSER "firefox"
+#define BROWSER "vivaldi"
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -178,10 +178,12 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "firefox", .tags = 1 << 0)
+	RULE(.class = "vivaldi-stable", .tags = 1 << 0)
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
 	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
 	RULE(.class = "Steam", .tags = 1 << 5, .isfloating = 1)
+	RULE(.class = "heroic", .tags = 1 << 5)
 	RULE(.class = "Gimp", .tags = 1 << 6)
 	RULE(.class = "Gimp", .title = "Change Foreground Colour", .isfloating = 1)
 	RULE(.class = "Gimp", .title = "New Layer", .isfloating = 1)
@@ -282,8 +284,8 @@ static const Key keys[] = {
 	{ Mod1Mask,                     XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
 	{ Mod1Mask,                     XK_o,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ Mod1Mask|ControlMask,         XK_v,         spawn,       {.v = (const char*[]){ "vim-anywhere", NULL } } },
-	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", NULL } } },
-	{ MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } },
+	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "simplescreenrecorder", "--start-hidden", NULL } } },
+	/* { MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } }, */
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
 	{ MODKEY|ControlMask,           XK_d,         spawn,       {.v = (const char*[]){ "toggledpm", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
