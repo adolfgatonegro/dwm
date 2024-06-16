@@ -5,7 +5,8 @@
 
 /* constants */
 #define TERM "st"
-#define BROWSER "vivaldi"
+#define BROWSER "firefox"
+/*#define BROWSER "vivaldi"*/
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -178,7 +179,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "firefox", .tags = 1 << 0)
-	RULE(.class = "vivaldi-stable", .tags = 1 << 0)
+	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
 	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
