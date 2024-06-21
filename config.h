@@ -288,7 +288,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "simplescreenrecorder", "--start-hidden", NULL } } },
 	/* { MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } }, */
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
-	{ MODKEY|ControlMask,           XK_d,         spawn,       {.v = (const char*[]){ "toggledpm", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ "dmbrowser", NULL } } },
 	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "lfpv", NULL } } },
