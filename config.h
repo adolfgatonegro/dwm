@@ -295,6 +295,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "lfpv", NULL } } },
 	{ MODKEY,                       XK_e,         spawn,       {.v = (const char*[]){ TERM, "-e", "nvim", NULL } } },
 	{ MODKEY,                       XK_d,         spawn,       {.v = (const char*[]){ "discord", NULL } } },
+	{ MODKEY,                       XK_k,         spawn,       {.v = (const char*[]){ "books", NULL } } },
 	{ MODKEY,                       XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "launcher", NULL } } },
 	/* window management */
