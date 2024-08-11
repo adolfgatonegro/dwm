@@ -180,7 +180,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "firefox", .tags = 1 << 0)
 	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
-	RULE(.class = "KOReader", .tags = 1 << 1)
+	/* RULE(.class = "KOReader", .tags = 1 << 1) */
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
 	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
@@ -295,7 +295,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "lfpv", NULL } } },
 	{ MODKEY,                       XK_e,         spawn,       {.v = (const char*[]){ TERM, "-e", "nvim", NULL } } },
 	{ MODKEY,                       XK_d,         spawn,       {.v = (const char*[]){ "discord", NULL } } },
-	{ MODKEY,                       XK_k,         spawn,       {.v = (const char*[]){ "books", NULL } } },
+	{ MODKEY,                       XK_o,         spawn,       {.v = (const char*[]){ "books", NULL } } },
 	{ MODKEY,                       XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "launcher", NULL } } },
 	/* window management */
