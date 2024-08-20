@@ -266,7 +266,7 @@ static const char *dmenucmd[] = {
 	/* "-sf", selfgcolor, */
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "wezterm", NULL };
 
 /* This defines the name of the executable that handles the bar (used for signalling purposes) */
 #define STATUSBAR "dwmblocks"
@@ -292,7 +292,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ "dmbrowser", NULL } } },
-	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "lfpv", NULL } } },
+	{ MODKEY,                       XK_f,         spawn,       {.v = (const char*[]){ TERM, "-e", "yazi", NULL } } },
 	{ MODKEY,                       XK_e,         spawn,       {.v = (const char*[]){ TERM, "-e", "nvim", NULL } } },
 	{ MODKEY,                       XK_d,         spawn,       {.v = (const char*[]){ "discord", NULL } } },
 	{ MODKEY,                       XK_o,         spawn,       {.v = (const char*[]){ "books", NULL } } },
