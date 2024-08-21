@@ -266,7 +266,7 @@ static const char *dmenucmd[] = {
 	/* "-sf", selfgcolor, */
 	NULL
 };
-static const char *termcmd[]  = { "wezterm", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 /* This defines the name of the executable that handles the bar (used for signalling purposes) */
 #define STATUSBAR "dwmblocks"
