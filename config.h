@@ -331,7 +331,7 @@ static const Key keys[] = {
 	{ Mod1Mask,                     XK_t,          setlayout,              {.v = &layouts[0]} },
 	{ Mod1Mask,                     XK_d,          setlayout,              {.v = &layouts[1]} },
 	{ Mod1Mask,                     XK_g,          setlayout,              {.v = &layouts[3]} },
-	{ Mod1Mask,                     XK_m,          setlayout,              {.v = &layouts[5]} },
+	{ Mod1Mask,                     XK_m,          setlayout,              {.v = &layouts[4]} },
 	/* gaps */
 	{ MODKEY|ControlMask,           XK_0,          togglegaps,             {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_0,          defaultgaps,            {0} },
