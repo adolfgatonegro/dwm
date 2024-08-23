@@ -279,7 +279,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,         spawn,       {.v = termcmd } },
 	{ MODKEY,                       XK_grave,     spawn,       {.v = (const char*[]){ "dmunicode", NULL } } },
 	{ MODKEY,                       XK_x,         spawn,       {.v = (const char*[]){ "dmsys", NULL } } },
-	{ MODKEY,                       XK_F2,        spawn,       {.v = (const char*[]){ "dmconf", NULL } } },
 	{ MODKEY,                       XK_F8,        spawn,       {.v = (const char*[]){ "dmmount", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F8,        spawn,       {.v = (const char*[]){ "dmunmount", NULL } } },
 	{ Mod1Mask,                     XK_b,         spawn,       {.v = (const char*[]){ "bmks", NULL } } },
