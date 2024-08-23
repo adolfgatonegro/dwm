@@ -30,7 +30,7 @@
 #include "seamless_restart.c"
 /* Layouts */
 #include "layout_facts.c"
-#include "layout_bstack.c"
+/* #include "layout_bstack.c" */
 #include "layout_centeredmaster.c"
 #include "layout_deck.c"
 #include "layout_grid.c"

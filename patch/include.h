@@ -29,7 +29,7 @@
 #include "vanitygaps.h"
 #include "xrdb.h"
 /* Layouts */
-#include "layout_bstack.h"
+/* #include "layout_bstack.h" */
 #include "layout_centeredmaster.h"
 #include "layout_deck.h"
 #include "layout_grid.h"

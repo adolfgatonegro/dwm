@@ -27,7 +27,7 @@ static const unsigned int systrayiconsize = 16; /* systray icon size in px, in b
 static const int showsystray             = 1;   /* 0 means no systray */
 
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_BAR;
+static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char *fonts[]               = { "monospace:size=8" };
