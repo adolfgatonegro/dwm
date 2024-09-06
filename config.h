@@ -191,6 +191,8 @@ static const Rule rules[] = {
 	RULE(.class = "Gimp", .title = "Change Foreground Colour", .isfloating = 1)
 	RULE(.class = "Gimp", .title = "New Layer", .isfloating = 1)
 	RULE(.class = "Gimp", .title = "Quit GIMP", .isfloating = 1)
+	RULE(.class = "krita", .tags = 1 << 6)
+	RULE(.class = "krita", .title = "Krita -", .isfloating = 1)
 	RULE(.class = "Inkscape", .tags = 1 << 6)
 	RULE(.class = "Darktable", .tags = 1 << 6)
 	RULE(.class = "Vmplayer", .tags = 1 << 8)
@@ -286,7 +288,9 @@ static const Key keys[] = {
 	{ Mod1Mask,                     XK_n,         spawn,       {.v = (const char*[]){ "dmnotes", NULL } } },
 	{ Mod1Mask,                     XK_o,         spawn,       {.v = (const char*[]){ "linkhandler", NULL } } },
 	{ Mod1Mask|ControlMask,         XK_v,         spawn,       {.v = (const char*[]){ "vim-anywhere", NULL } } },
-	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "simplescreenrecorder", "--start-hidden", NULL } } },
+	{ MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", NULL } } },
+	{ MODKEY|ShiftMask,             XK_F12,       spawn,       {.v = (const char*[]){ "dmrecord", "kill", NULL } } },
+	/* { MODKEY,                       XK_F12,       spawn,       {.v = (const char*[]){ "simplescreenrecorder", "--start-hidden", NULL } } }, */
 	{ MODKEY|ControlMask,           XK_p,         spawn,       {.v = (const char*[]){ "dmdisplay", NULL } } },
 	{ MODKEY,                       XK_b,         spawn,       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,         spawn,       {.v = (const char*[]){ "dmbrowser", NULL } } },
