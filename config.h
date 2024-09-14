@@ -6,7 +6,6 @@
 /* constants */
 #define TERM "st"
 #define BROWSER "firefox"
-/*#define BROWSER "vivaldi"*/
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -35,20 +34,20 @@ static const char *fonts[]               = { "monospace:size=8" };
 
 static char c000000[]                    = "#000000"; // placeholder value
 
-static char normfgcolor[]                = "#bbbbbb";
-static char normbgcolor[]                = "#0a0a20";
-static char normbordercolor[]            = "#0a0a20";
-static char normfloatcolor[]             = "#0a0a20";
+static char normfgcolor[]                = "#c1c1d1";
+static char normbgcolor[]                = "#0a0a15";
+static char normbordercolor[]            = "#0a0a15";
+static char normfloatcolor[]             = "#0a0a15";
 
-static char selfgcolor[]                 = "#eeeeee";
+static char selfgcolor[]                 = "#c1c1d1";
 static char selbgcolor[]                 = "#ff00aa";
 static char selbordercolor[]             = "#ff00aa";
 static char selfloatcolor[]              = "#ff00aa";
 
 static char titlenormfgcolor[]           = "#c1c1d1";
-static char titlenormbgcolor[]           = "#0a0a20";
-static char titlenormbordercolor[]       = "#0a0a20";
-static char titlenormfloatcolor[]        = "#0a0a20";
+static char titlenormbgcolor[]           = "#0a0a15";
+static char titlenormbordercolor[]       = "#0a0a15";
+static char titlenormfloatcolor[]        = "#0a0a15";
 
 static char titleselfgcolor[]            = "#c1c1d1";
 static char titleselbgcolor[]            = "#262639";
@@ -56,23 +55,23 @@ static char titleselbordercolor[]        = "#262639";
 static char titleselfloatcolor[]         = "#262639";
 
 static char tagsnormfgcolor[]            = "#c1c1d1";
-static char tagsnormbgcolor[]            = "#0a0a20";
-static char tagsnormbordercolor[]        = "#0a0a20";
-static char tagsnormfloatcolor[]         = "#0a0a20";
+static char tagsnormbgcolor[]            = "#0a0a15";
+static char tagsnormbordercolor[]        = "#0a0a15";
+static char tagsnormfloatcolor[]         = "#0a0a15";
 
-static char tagsselfgcolor[]             = "#0a0a20";
+static char tagsselfgcolor[]             = "#0a0a15";
 static char tagsselbgcolor[]             = "#ff00aa";
 static char tagsselbordercolor[]         = "#ff00aa";
 static char tagsselfloatcolor[]          = "#ff00aa";
 
-static char hidnormfgcolor[]             = "#005577";
-static char hidselfgcolor[]              = "#227799";
-static char hidnormbgcolor[]             = "#222222";
-static char hidselbgcolor[]              = "#222222";
+static char hidnormfgcolor[]             = "#00ffe0";
+static char hidselfgcolor[]              = "#207fec";
+static char hidnormbgcolor[]             = "#262639";
+static char hidselbgcolor[]              = "#262639";
 
 static char urgfgcolor[]                 = "#c1c1d1";
 static char urgbgcolor[]                 = "#363649";
-static char urgbordercolor[]             = "#ff0000";
+static char urgbordercolor[]             = "#ff0055";
 static char urgfloatcolor[]              = "#db8fd9";
 
 static const unsigned int baralpha = 0xf9;
