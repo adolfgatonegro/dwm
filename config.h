@@ -180,6 +180,7 @@ static const Rule rules[] = {
 	RULE(.class = "firefox", .tags = 1 << 0)
 	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
 	/* RULE(.class = "KOReader", .tags = 1 << 1) */
+	RULE(.class = "obsidian", .tags = 1 << 2)
 	RULE(.class = "discord", .tags = 1 << 3)
 	RULE(.class = "ONLYOFFICE Desktop Editors", .tags = 1 << 4)
 	RULE(.class = "steam", .tags = 1 << 5, .isfloating = 1)
