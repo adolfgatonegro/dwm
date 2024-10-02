@@ -296,6 +296,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_n,         spawn,       {.v = (const char*[]){ "obsidian", NULL } } },
 	{ MODKEY,                       XK_d,         spawn,       {.v = (const char*[]){ "discord", NULL } } },
 	{ MODKEY,                       XK_o,         spawn,       {.v = (const char*[]){ "books", NULL } } },
+	{ 0,                            XK_Print,     spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
+	{ ShiftMask,                    XK_Print,     spawn,       {.v = (const char*[]){ "flameshot", "launcher", NULL } } },
 	{ MODKEY,                       XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "gui", NULL } } },
 	{ MODKEY|ShiftMask,             XK_F4,        spawn,       {.v = (const char*[]){ "flameshot", "launcher", NULL } } },
 	/* window management */
@@ -353,6 +355,7 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioRaiseVolume,   spawn, SHCMD("volctl -i 2; pkill -RTMIN+10 dwmblocks") },
 	{ 0, XF86XK_AudioLowerVolume,   spawn, SHCMD("volctl -d 2; pkill -RTMIN+10 dwmblocks") },
 	{ 0, XF86XK_AudioMute,          spawn, SHCMD("volctl -t; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_Display,            spawn, {.v = (const char*[]){ "dmdisplay", NULL } } },
 	{ 0, XF86XK_MonBrightnessUp,    spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
 	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
 	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "brightnessctl", "--device=smc::kbd_backlight", "set", "+10%", NULL } } },
