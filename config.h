@@ -22,7 +22,7 @@ static const int bar_height              = 25;   /* 0 means derive from font, >=
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
 static const unsigned int systrayspacing = 8;   /* systray spacing */
-static const unsigned int systrayiconsize = 16; /* systray icon size in px, in bar_systray.c systray->h = systrayiconsize */
+static const unsigned int systrayiconsize = 14; /* systray icon size in px, in bar_systray.c systray->h = systrayiconsize */
 static const int showsystray             = 1;   /* 0 means no systray */
 
 /* Indicators: see patch/bar_indicators.h for options */
