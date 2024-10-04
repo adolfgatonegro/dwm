@@ -5,7 +5,7 @@
 
 /* constants */
 #define TERM "st"
-#define BROWSER "firefox"
+#define BROWSER "librewolf"
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -177,6 +177,7 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "firefox", .tags = 1 << 0)
+	RULE(.class = "librewolf", .tags = 1 << 0)
 	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
 	/* RULE(.class = "KOReader", .tags = 1 << 1) */
 	RULE(.class = "obsidian", .tags = 1 << 2)
