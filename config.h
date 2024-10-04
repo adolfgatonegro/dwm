@@ -26,7 +26,7 @@ static const unsigned int systrayiconsize = 14; /* systray icon size in px, in b
 static const int showsystray             = 1;   /* 0 means no systray */
 
 /* Indicators: see patch/bar_indicators.h for options */
-static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
+static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char *fonts[]               = { "Cozette:size=8" };
@@ -50,9 +50,9 @@ static char titlenormbordercolor[]       = "#0a0a15";
 static char titlenormfloatcolor[]        = "#0a0a15";
 
 static char titleselfgcolor[]            = "#c1c1d1";
-static char titleselbgcolor[]            = "#262639";
-static char titleselbordercolor[]        = "#262639";
-static char titleselfloatcolor[]         = "#262639";
+static char titleselbgcolor[]            = "#0a0a15";
+static char titleselbordercolor[]        = "#0a0a15";
+static char titleselfloatcolor[]         = "#0a0a15";
 
 static char tagsnormfgcolor[]            = "#c1c1d1";
 static char tagsnormbgcolor[]            = "#0a0a15";
