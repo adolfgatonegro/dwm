@@ -74,7 +74,7 @@ static char urgbgcolor[]                 = "#363649";
 static char urgbordercolor[]             = "#ff0055";
 static char urgfloatcolor[]              = "#db8fd9";
 
-static const unsigned int baralpha = 0xf9;
+static const unsigned int baralpha = 0xcc;
 static const unsigned int borderalpha = OPAQUE;
 static const unsigned int alphas[][3] = {
 	/*                       fg      bg        border     */
