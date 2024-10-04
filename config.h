@@ -74,7 +74,7 @@ static char urgbgcolor[]                 = "#363649";
 static char urgbordercolor[]             = "#ff0055";
 static char urgfloatcolor[]              = "#db8fd9";
 
-static const unsigned int baralpha = 0xcc;
+static const unsigned int baralpha = 0xf3;
 static const unsigned int borderalpha = OPAQUE;
 static const unsigned int alphas[][3] = {
 	/*                       fg      bg        border     */
@@ -102,9 +102,9 @@ static char *colors[][ColCount] = {
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
 };
 
-const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x40", NULL };
-const char *spcmd2[] = {TERM, "-n", "spmusic", "-g", "120x40", "-e", "cmus", NULL };
-const char *spcmd3[] = {TERM, "-n", "spsysmon", "-g", "120x40", "-e", "btop", NULL };
+const char *spcmd1[] = {TERM, "-n", "spterm", "-g", "120x32", NULL };
+const char *spcmd2[] = {TERM, "-n", "spmusic", "-g", "120x32", "-e", "cmus", NULL };
+const char *spcmd3[] = {TERM, "-n", "spsysmon", "-g", "120x32", "-e", "btop", NULL };
 const char *spcmd4[] = {TERM, "-n", "spcalc", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
