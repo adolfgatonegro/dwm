@@ -30,7 +30,6 @@ static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const char *fonts[]               = { "Cozette:size=8" };
-/* static const char dmenufont[]            = "monospace:size=9"; */
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -40,7 +39,7 @@ static char normbordercolor[]            = "#0a0a15";
 static char normfloatcolor[]             = "#0a0a15";
 
 static char selfgcolor[]                 = "#c1c1d1";
-static char selbgcolor[]                 = "#ff00aa";
+static char selbgcolor[]                 = "#000000";
 static char selbordercolor[]             = "#ff00aa";
 static char selfloatcolor[]              = "#ff00aa";
 
@@ -59,18 +58,18 @@ static char tagsnormbgcolor[]            = "#0a0a15";
 static char tagsnormbordercolor[]        = "#0a0a15";
 static char tagsnormfloatcolor[]         = "#0a0a15";
 
-static char tagsselfgcolor[]             = "#0a0a15";
-static char tagsselbgcolor[]             = "#ff00aa";
-static char tagsselbordercolor[]         = "#ff00aa";
-static char tagsselfloatcolor[]          = "#ff00aa";
+static char tagsselfgcolor[]             = "#ff00aa";
+static char tagsselbgcolor[]             = "#0a0a15";
+static char tagsselbordercolor[]         = "#0a0a15";
+static char tagsselfloatcolor[]          = "#0a0a15";
 
 static char hidnormfgcolor[]             = "#00ffe0";
 static char hidselfgcolor[]              = "#207fec";
 static char hidnormbgcolor[]             = "#262639";
 static char hidselbgcolor[]              = "#262639";
 
-static char urgfgcolor[]                 = "#c1c1d1";
-static char urgbgcolor[]                 = "#363649";
+static char urgfgcolor[]                 = "#00ffe0";
+static char urgbgcolor[]                 = "#0a0a15";
 static char urgbordercolor[]             = "#ff0055";
 static char urgfloatcolor[]              = "#db8fd9";
 
