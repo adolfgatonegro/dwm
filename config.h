@@ -124,7 +124,7 @@ static char *colors[][ColCount] = {
 /*Autostart dwmblocks*/
 static const char *const autostart[] = {
 	"dwmblocks", NULL,
-	"sxhkd", NULL,
+	/*"sxhkd", NULL, started by xorg instead */
 	NULL /* terminate */
 };
 
