@@ -200,7 +200,7 @@ static const Rule rules[] = {
 
 	/*Application rules*/
 	RULE(.class = "firefox", .tags = 1 << 0)
-	RULE(.class = "librewolf", .tags = 1 << 0)
+	RULE(.class = "LibreWolf", .tags = 1 << 0)
 	RULE(.class = "Vivaldi-stable", .tags = 1 << 0)
 	/* RULE(.class = "KOReader", .tags = 1 << 1) */
 	RULE(.class = "obsidian", .tags = 1 << 2)
@@ -348,8 +348,8 @@ static const Key keys[] = {
 
 	/*Shift between tags */
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
-	{ MODKEY|Mod4Mask,              XK_Tab,        shiftviewclients,       { .i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_backslash,  shiftviewclients,       { .i = +1 } },
+	{ Mod4Mask|ShiftMask,           XK_Tab,        shiftviewclients,       { .i = -1 } },
+	{ Mod4Mask,                     XK_backslash,  shiftviewclients,       { .i = +1 } },
 
 	/*Kill dwm/client window*/
 	{ MODKEY,                       XK_q,          killclient,             {0} },
