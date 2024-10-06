@@ -415,9 +415,10 @@ static const Key keys[] = {
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
+
 	/* click                event mask           button          function        argument */
-	{ ClkLtSymbol,          0,                   Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,                   Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkLtSymbol,          0,                   Button3,        cyclelayout,    {.i = -1 } },
+	{ ClkLtSymbol,          0,                   Button1,        cyclelayout,    {.i = +1 } },
 	{ ClkLtSymbol,          0,                   Button4,        focusstack,     {.i = -1 } },
 	{ ClkLtSymbol,          0,                   Button5,        focusstack,     {.i = +1 } },
 	{ ClkWinTitle,          0,                   Button2,        zoom,           {0} },
