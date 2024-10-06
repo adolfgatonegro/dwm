@@ -29,14 +29,16 @@ persistclientstate(Client *c)
 {
 	setclienttags(c);
 	setclientfields(c);
+	savewindowfloatposition(c, c->mon);
 }
 
 int
 restoreclientstate(Client *c)
 {
-	return getclienttags(c)
-		| getclientfields(c)
-	;
+	int restored = getclientfields(c);
+	getclienttags(c);
+	restorewindowfloatposition(c, c->mon ? c->mon : selmon);
+	return restored;
 }
 
 void setmonitorfields(Monitor *m)
@@ -200,7 +202,10 @@ setclientfields(Client *c)
 		| (c->isfloating & 0x1) << 11
 		| (c->isterminal & 0x1) << 13
 		| (c->noswallow & 0x1) << 14
+		| (c->issteam & 0x1) << 15
 		| (c->issticky & 0x1) << 16
+		| (c->fakefullscreen & 0x1) << 17
+		| (c->scratchkey & 0xFF) << 24
 	};
 	XChangeProperty(dpy, c->win, clientatom[ClientFields], XA_CARDINAL, 32, PropModeReplace, (unsigned char *)data, 1);
 }
@@ -223,7 +228,10 @@ getclientfields(Client *c)
 	c->isfloating = (fields >> 11) & 0x1;
 	c->isterminal = (fields >> 13) & 0x1;
 	c->noswallow = (fields >> 14) & 0x1;
+	c->issteam = (fields >> 15) & 0x1;
 	c->issticky = (fields >> 16) & 0x1;
+	c->fakefullscreen = (fields >> 17) & 0x1;
+	c->scratchkey = (fields >> 24) & 0xFF;
 	return 1;
 }
 
@@ -245,3 +253,76 @@ getclienttags(Client *c)
 	return 1;
 }
 
+void
+savewindowfloatposition(Client *c, Monitor *m)
+{
+	char atom[22] = {0};
+	if (c->sfx == -9999)
+		return;
+
+	sprintf(atom, "_DWM_FLOATPOS_%u", m->num);
+	uint32_t pos[] = { (MAX(c->sfx - m->mx, 0) & 0xffff) | ((MAX(c->sfy - m->my, 0) & 0xffff) << 16) };
+	XChangeProperty(dpy, c->win, XInternAtom(dpy, atom, False), XA_CARDINAL, 32, PropModeReplace, (unsigned char *)pos, 1);
+
+	sprintf(atom, "_DWM_FLOATSIZE_%u", m->num);
+	uint32_t size[] = { (c->sfw & 0xffff) | ((c->sfh & 0xffff) << 16) };
+	XChangeProperty(dpy, c->win, XInternAtom(dpy, atom, False), XA_CARDINAL, 32, PropModeReplace, (unsigned char *)size, 1);
+
+	XSync(dpy, False);
+}
+
+int
+restorewindowfloatposition(Client *c, Monitor *m)
+{
+	char atom[22] = {0};
+	Atom key, value;
+	int x, y, w, h;
+
+	if (m == NULL)
+		return 0;
+
+	sprintf(atom, "_DWM_FLOATPOS_%u", m->num);
+
+	key = XInternAtom(dpy, atom, False);
+	if (!key)
+		return 0;
+
+	value = getatomprop(c, key, AnyPropertyType);
+	if (!value)
+		return 0;
+
+	x = value & 0xffff;
+	y = value >> 16;
+
+	sprintf(atom, "_DWM_FLOATSIZE_%u", m->num);
+
+	key = XInternAtom(dpy, atom, False);
+	if (!key)
+		return 0;
+
+	value = getatomprop(c, key, AnyPropertyType);
+	if (!value)
+		return 0;
+
+	w = value & 0xffff;
+	h = value >> 16;
+
+	if (w <= 0 || h <= 0) {
+		fprintf(stderr, "restorewindowfloatposition: bad float values x = %d, y = %d, w = %d, h = %d for client = %s\n", x, y, w, h, c->name);
+		return 0;
+	}
+
+	c->sfx = m->mx + x;
+	c->sfy = m->my + y;
+	c->sfw = w;
+	c->sfh = h;
+
+	if (c->isfloating) {
+		c->x = c->sfx;
+		c->y = c->sfy;
+		c->w = c->sfw;
+		c->h = c->sfh;
+	}
+
+	return 1;
+}

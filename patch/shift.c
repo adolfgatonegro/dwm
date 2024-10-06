@@ -10,8 +10,9 @@ shift(const Arg *arg, int clients)
 	for (c = selmon->clients; c && clients; c = c->next) {
 		if (c == selmon->sel)
 			continue;
-		if (!(c->tags & SPTAGMASK))
-			tagmask |= c->tags;
+		if (c->issticky)
+			continue;
+		tagmask |= c->tags;
 	}
 
 	do {
@@ -19,7 +20,6 @@ shift(const Arg *arg, int clients)
 			shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (NUMTAGS - arg->i));
 		else // right circular shift
 			shifted.ui = (shifted.ui >> -arg->i) | (shifted.ui << (NUMTAGS + arg->i));
-		shifted.ui &= ~SPTAGMASK;
 	} while (tagmask && !(shifted.ui & tagmask));
 
 	return shifted;

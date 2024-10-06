@@ -6,6 +6,7 @@ width_tags(Bar *bar, BarArg *a)
 	unsigned int occ = 0;
 	for (c = bar->mon->clients; c; c = c->next)
 		occ |= c->tags == 255 ? 0 : c->tags;
+
 	for (w = 0, i = 0; i < NUMTAGS; i++) {
 		if (!(occ & 1 << i || bar->mon->tagset[bar->mon->seltags] & 1 << i))
 			continue;
