@@ -13,7 +13,7 @@ width_systray(Bar *bar, BarArg *a)
 		if (!w)
 			XMoveWindow(dpy, systray->win, -systray->h, bar->by);
 	}
-	return w ? w + lrpad - systrayspacing : 0;
+	return w ? w + lrpad / 8 - systrayspacing : 0; /* divide lrpad to reduce horizontal padding */
 }
 
 int
@@ -35,7 +35,7 @@ draw_systray(Bar *bar, BarArg *a)
 		wa.override_redirect = True;
 		wa.event_mask = ButtonPressMask|ExposureMask;
 		wa.border_pixel = 0;
-		systray->h = MIN(a->h, drw->fonts->h);
+		systray->h = systrayiconsize;
 		wa.background_pixel = 0;
 		wa.colormap = cmap;
 		systray->win = XCreateWindow(dpy, root, bar->bx + a->x + lrpad / 2, -systray->h, MAX(a->w + 40, 1), systray->h, 0, depth,
