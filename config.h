@@ -292,7 +292,7 @@ static const Key keys[] = {
 	/* modifier                     key            function                argument */
 
 	/*Spawn commands*/
-	{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },
+	/*{ MODKEY,                       XK_p,          spawn,                  {.v = dmenucmd } },*/
 	{ MODKEY,                       XK_Return,     spawn,                  {.v = termcmd } },
 
 	/*Navigate stack*/
