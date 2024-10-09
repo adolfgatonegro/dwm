@@ -30,8 +30,6 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static int fakefsindicatortype           = INDICATOR_PLUS;
-static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
 static const char *fonts[]               = { "Cozette:size=10" };
 /*static const char dmenufont[]            = "Cozette:size=10";*/
 
@@ -381,7 +379,6 @@ static const Key keys[] = {
 	/*Toggle window states*/
 	{ MODKEY|ShiftMask,             XK_space,      togglefloating,         {0} },
 	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
-	{ MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },
 	{ MODKEY|ShiftMask,             XK_s,          togglesticky,           {0} },
 
 	/*View all tags*/

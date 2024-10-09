@@ -19,7 +19,6 @@
 #include "cfacts.c"
 #include "cool_autostart.c"
 #include "cyclelayouts.c"
-#include "fakefullscreenclient.c"
 #include "inplacerotate.c"
 #include "movestack.c"
 #include "pertag.c"

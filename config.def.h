@@ -27,8 +27,6 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static int fakefsindicatortype           = INDICATOR_PLUS;
-static int floatfakefsindicatortype      = INDICATOR_PLUS_AND_LARGER_SQUARE;
 static const char *fonts[]               = { "monospace:size=10" };
 static const char dmenufont[]            = "monospace:size=10";
 
@@ -306,7 +304,6 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
-	{ MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },
 	{ MODKEY|ShiftMask,             XK_s,          togglesticky,           {0} },
 	{ MODKEY,                       XK_0,          view,                   {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,          tag,                    {.ui = ~0 } },

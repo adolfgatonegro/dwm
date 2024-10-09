@@ -204,7 +204,6 @@ setclientfields(Client *c)
 		| (c->noswallow & 0x1) << 14
 		| (c->issteam & 0x1) << 15
 		| (c->issticky & 0x1) << 16
-		| (c->fakefullscreen & 0x1) << 17
 		| (c->scratchkey & 0xFF) << 24
 	};
 	XChangeProperty(dpy, c->win, clientatom[ClientFields], XA_CARDINAL, 32, PropModeReplace, (unsigned char *)data, 1);
@@ -230,7 +229,6 @@ getclientfields(Client *c)
 	c->noswallow = (fields >> 14) & 0x1;
 	c->issteam = (fields >> 15) & 0x1;
 	c->issticky = (fields >> 16) & 0x1;
-	c->fakefullscreen = (fields >> 17) & 0x1;
 	c->scratchkey = (fields >> 24) & 0xFF;
 	return 1;
 }
