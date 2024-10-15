@@ -5,6 +5,8 @@
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
 #define TERM "st"
 #define BROWSER "librewolf"
+/* for XF86 Media Keys */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
@@ -394,6 +396,24 @@ static const Key keys[] = {
 	/*Move focus between monitors*/
 	{ MODKEY|ControlMask,           XK_comma,      focusmon,               {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period,     focusmon,               {.i = +1 } },
+
+	/* media keys */
+	{ 0, XF86XK_AudioPlay,          spawn, SHCMD("playerctl play-pause; pkill -RTMIN+13 dwmblocks") },
+	{ 0, XF86XK_AudioStop,          spawn, SHCMD("playerctl stop; pkill -RTMIN+13 dwmblocks") },
+	{ 0, XF86XK_AudioNext,          spawn, SHCMD("playerctl next; pkill -RTMIN+13 dwmblocks") },
+	{ 0, XF86XK_AudioPrev,          spawn, SHCMD("playerctl previous; pkill -RTMIN+13 dwmblocks") },
+	{ ShiftMask, XF86XK_AudioNext,  spawn, {.v = (const char*[]){ "playerctl", "position", "10+", NULL } } },
+	{ ShiftMask, XF86XK_AudioPrev,  spawn, {.v = (const char*[]){ "playerctl", "position", "10-", NULL } } },
+	{ 0, XF86XK_AudioRaiseVolume,   spawn, SHCMD("volctl -i 2; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_AudioLowerVolume,   spawn, SHCMD("volctl -d 2; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_AudioMute,          spawn, SHCMD("volctl -t; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_Display,            spawn, {.v = (const char*[]){ "dmdisplay", NULL } } },
+	{ 0, XF86XK_MonBrightnessUp,    spawn, {.v = (const char*[]){ "backlightctl", "-inc", "5", NULL } } },
+	{ 0, XF86XK_MonBrightnessDown,  spawn, {.v = (const char*[]){ "backlightctl", "-dec", "5", NULL } } },
+	{ 0, XF86XK_KbdBrightnessUp,    spawn, {.v = (const char*[]){ "brightnessctl", "--device=smc::kbd_backlight", "set", "+10%", NULL } } },
+	{ 0, XF86XK_KbdBrightnessDown,  spawn, {.v = (const char*[]){ "brightnessctl", "--device=smc::kbd_backlight", "set", "10%-", NULL } } },
+	{ 0, XF86XK_PowerOff,           spawn, {.v = (const char*[]){ "dmsys", NULL } } },
+	{ 0, XF86XK_Sleep,              spawn, {.v = (const char*[]){ "dmsys", NULL } } },
 
 	/*Tag keys*/
 	TAGKEYS(                        XK_1,                                  0)
