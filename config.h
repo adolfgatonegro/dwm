@@ -325,10 +325,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,                   {0} },
 
 	/*Modify gaps*/
-	{ MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },
-	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
-	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
+	/*{ MODKEY|Mod4Mask,              XK_u,          incrgaps,               {.i = +1 } },*/
+	/*{ MODKEY|Mod4Mask|ShiftMask,    XK_u,          incrgaps,               {.i = -1 } },*/
+	/*{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },*/
+	/*{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },*/
 
 	/*No need to do any of this nonsense*/
 	/*{ MODKEY|Mod4Mask,              XK_i,          incrigaps,              {.i = +1 } },*/
