@@ -259,7 +259,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -304,8 +304,8 @@ static const Key keys[] = {
 	/*Rotate stack in place*/
 	/*{ MODKEY|Mod4Mask,              XK_j,          inplacerotate,          {.i = +2 } }, // same as rotatestack*/
 	/*{ MODKEY|Mod4Mask,              XK_k,          inplacerotate,          {.i = -2 } }, // same as reotatestack*/
-	{ MODKEY|Mod4Mask,              XK_j,          inplacerotate,          {.i = +1} },
-	{ MODKEY|Mod4Mask,              XK_k,          inplacerotate,          {.i = -1} },
+	{ MODKEY|Mod1Mask,              XK_j,          inplacerotate,          {.i = +1} },
+	{ MODKEY|Mod1Mask,              XK_k,          inplacerotate,          {.i = -1} },
 
 	/*Increase/decrease number of masters*/
 	{ MODKEY,                       XK_i,          incnmaster,             {.i = +1 } },
@@ -346,8 +346,8 @@ static const Key keys[] = {
 
 	/*Shift between tags */
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
-	{ Mod4Mask|ShiftMask,           XK_Tab,        shiftviewclients,       { .i = -1 } },
-	{ Mod4Mask,                     XK_Tab,        shiftviewclients,       { .i = +1 } },
+	{ Mod1Mask|ShiftMask,           XK_Tab,        shiftviewclients,       { .i = -1 } },
+	{ Mod1Mask,                     XK_Tab,        shiftviewclients,       { .i = +1 } },
 
 	/*Kill dwm/client window*/
 	{ MODKEY,                       XK_q,          killclient,             {0} },
@@ -358,10 +358,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 
 	/*Switch to layout*/
-	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_d,          setlayout,              {.v = &layouts[1]} },
-	{ MODKEY,                       XK_g,          setlayout,              {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[4]} },
+	/*{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },*/
+	/*{ MODKEY,                       XK_d,          setlayout,              {.v = &layouts[1]} },*/
+	/*{ MODKEY,                       XK_g,          setlayout,              {.v = &layouts[2]} },*/
+	/*{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[4]} },*/
 
 	/*Cycle layouts*/
 	{ MODKEY,                       XK_comma,      cyclelayout,            {.i = -1 } },
@@ -371,9 +371,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_grave,      togglescratch,          {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_grave,      setscratch,             {.v = scratchpadcmd } },
 	{ MODKEY|ControlMask,           XK_grave,      removescratch,          {.v = scratchpadcmd } },
-	{ Mod4Mask,                     XK_m,          togglescratch,          {.v = spMusic } },
+	{ MODKEY,                     XK_m,          togglescratch,          {.v = spMusic } },
 	{ 0,                            XK_F10,        togglescratch,          {.v = spSysMon } },
-	{ Mod4Mask,                     XK_c,          togglescratch,          {.v = spCalc } },
+	{ MODKEY,                     XK_c,          togglescratch,          {.v = spCalc } },
 
 	/*Toggle bar*/
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
@@ -461,5 +461,51 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,              Button3,        toggletag,      {0} },
 	{ ClkTagBar,            0,                   Button4,        shiftviewclients, {.i = -1 } },
 	{ ClkTagBar,            0,                   Button5,        shiftviewclients, {.i = +1 } },
+};
+
+/* signal definitions */
+/* signum must be greater than 0 */
+/* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
+static const Signal signals[] = {
+	/* signum                    function */
+	{ "focusstack",              focusstack },
+	{ "setmfact",                setmfact },
+	{ "togglebar",               togglebar },
+	{ "incnmaster",              incnmaster },
+	{ "togglefloating",          togglefloating },
+	{ "focusmon",                focusmon },
+	{ "inplacerotate",           inplacerotate },
+	{ "setcfact",                setcfact },
+	{ "tagmon",                  tagmon },
+	{ "zoom",                    zoom },
+	{ "incrgaps",                incrgaps },
+	{ "incrigaps",               incrigaps },
+	{ "incrogaps",               incrogaps },
+	{ "incrihgaps",              incrihgaps },
+	{ "incrivgaps",              incrivgaps },
+	{ "incrohgaps",              incrohgaps },
+	{ "incrovgaps",              incrovgaps },
+	{ "togglegaps",              togglegaps },
+	{ "defaultgaps",             defaultgaps },
+	{ "setgaps",                 setgapsex },
+	{ "view",                    view },
+	{ "viewall",                 viewallex },
+	{ "viewex",                  viewex },
+	{ "toggleview",              toggleview },
+	{ "shiftviewclients",        shiftviewclients },
+	{ "togglesticky",            togglesticky },
+	{ "cyclelayout",             cyclelayout },
+	{ "toggleviewex",            toggleviewex },
+	{ "tag",                     tag },
+	{ "tagall",                  tagallex },
+	{ "tagex",                   tagex },
+	{ "toggletag",               toggletag },
+	{ "toggletagex",             toggletagex },
+	{ "togglefullscreen",        togglefullscreen },
+	{ "killclient",              killclient },
+	{ "xrdb",                    xrdb },
+	{ "quit",                    quit },
+	{ "setlayout",               setlayout },
+	{ "setlayoutex",             setlayoutex },
 };
 

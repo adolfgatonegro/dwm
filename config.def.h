@@ -353,3 +353,49 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,              Button3,        toggletag,      {0} },
 };
 
+/* signal definitions */
+/* signum must be greater than 0 */
+/* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
+static const Signal signals[] = {
+	/* signum                    function */
+	{ "focusstack",              focusstack },
+	{ "setmfact",                setmfact },
+	{ "togglebar",               togglebar },
+	{ "incnmaster",              incnmaster },
+	{ "togglefloating",          togglefloating },
+	{ "focusmon",                focusmon },
+	{ "inplacerotate",           inplacerotate },
+	{ "setcfact",                setcfact },
+	{ "tagmon",                  tagmon },
+	{ "zoom",                    zoom },
+	{ "incrgaps",                incrgaps },
+	{ "incrigaps",               incrigaps },
+	{ "incrogaps",               incrogaps },
+	{ "incrihgaps",              incrihgaps },
+	{ "incrivgaps",              incrivgaps },
+	{ "incrohgaps",              incrohgaps },
+	{ "incrovgaps",              incrovgaps },
+	{ "togglegaps",              togglegaps },
+	{ "defaultgaps",             defaultgaps },
+	{ "setgaps",                 setgapsex },
+	{ "view",                    view },
+	{ "viewall",                 viewallex },
+	{ "viewex",                  viewex },
+	{ "toggleview",              toggleview },
+	{ "shiftviewclients",        shiftviewclients },
+	{ "togglesticky",            togglesticky },
+	{ "cyclelayout",             cyclelayout },
+	{ "toggleviewex",            toggleviewex },
+	{ "tag",                     tag },
+	{ "tagall",                  tagallex },
+	{ "tagex",                   tagex },
+	{ "toggletag",               toggletag },
+	{ "toggletagex",             toggletagex },
+	{ "togglefullscreen",        togglefullscreen },
+	{ "killclient",              killclient },
+	{ "xrdb",                    xrdb },
+	{ "quit",                    quit },
+	{ "setlayout",               setlayout },
+	{ "setlayoutex",             setlayoutex },
+};
+

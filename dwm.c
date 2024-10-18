@@ -1760,7 +1760,8 @@ propertynotify(XEvent *e)
 	}
 
 	if ((ev->window == root) && (ev->atom == XA_WM_NAME)) {
-		updatestatus();
+		if (!fake_signal())
+			updatestatus();
 	} else if (ev->state == PropertyDelete) {
 		return; /* ignore */
 	} else if ((c = wintoclient(ev->window))) {
