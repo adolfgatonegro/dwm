@@ -358,10 +358,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 
 	/*Switch to layout*/
-	/*{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },*/
-	/*{ MODKEY,                       XK_d,          setlayout,              {.v = &layouts[1]} },*/
-	/*{ MODKEY,                       XK_g,          setlayout,              {.v = &layouts[2]} },*/
-	/*{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[4]} },*/
+	{ MODKEY|ControlMask,           XK_t,          setlayout,              {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,           XK_d,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,           XK_g,          setlayout,              {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,           XK_m,          setlayout,              {.v = &layouts[4]} },
 
 	/*Cycle layouts*/
 	{ MODKEY,                       XK_comma,      cyclelayout,            {.i = -1 } },
