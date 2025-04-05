@@ -209,6 +209,7 @@ static const Rule rules[] = {
 	RULE(.title = "Steam", .tags = 1 << 5, .isfloating = 1, .iscentered = 1)
 	RULE(.class = "heroic", .tags = 1 << 5)
 	RULE(.class = "Gimp", .tags = 1 << 6)
+	RULE(.class = "Org.gimp.GIMP.Stable", .tags = 1 << 6)
 	RULE(.class = "krita", .tags = 1 << 6)
 	RULE(.class = "Inkscape", .tags = 1 << 6)
 	RULE(.class = "Darktable", .tags = 1 << 6)
