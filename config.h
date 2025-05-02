@@ -4,7 +4,7 @@
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #define CMD(...)   { .v = (const char*[]){ __VA_ARGS__, NULL } }
 #define TERM "st"
-#define BROWSER "librewolf"
+#define BROWSER "firefox"
 /* for XF86 Media Keys */
 #include <X11/XF86keysym.h>
 
