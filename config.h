@@ -32,7 +32,7 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static int tagindicatortype              = INDICATOR_NONE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
-static const char *fonts[]               = { "Cozette:size=10" };
+static const char *fonts[]               = { "CozetteVector:size=10" };
 /*static const char dmenufont[]            = "Cozette:size=10";*/
 
 static char c000000[]                    = "#000000"; // placeholder value
