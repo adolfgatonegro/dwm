@@ -129,7 +129,7 @@ static const char *const autostart[] = {
 /*Define scratchpads*/
 static const char *scratchpadcmd[] = {"s", TERM, "-n", "spterm", "-g", "110x34", NULL};
 static const char *spMusic[] = {"m", TERM, "-n", "spmusic", "-g", "110x34", "-e", "cmus", NULL};
-static const char *spSysMon[] = {"b", TERM, "-n", "spsysmon", "-g", "110x34", "-e", "btop", NULL};
+static const char *spSysMon[] = {"b", TERM, "-n", "spsysmon", "-g", "120x40", "-e", "btop", NULL};
 static const char *spCalc[] = {"c", TERM, "-n", "spcalc", "-g", "50x15", "-e", "bc", "-lq", NULL};
 
 /* Tags
